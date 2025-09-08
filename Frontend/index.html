@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Mi Jardín Digital</title>
+</head>
+<body>
+    <h1>Mi Jardín Digital</h1>
+
+    <input id="titulo" placeholder="Título">
+    <textarea id="contenido" placeholder="Contenido"></textarea>
+    <button onclick="agregarNota()">Agregar Nota</button>
+
+    <ul id="notas"></ul>
+
+    <script>
+        async function cargarNotas() {
+            const res = await fetch('http://127.0.0.1:5000/notas');
+            const notas = await res.json();
+            const ul = document.getElementById('notas');
+            ul.innerHTML = '';
+            notas.forEach(nota => {
+                const li = document.createElement('li');
+                li.textContent = nota.titulo + ': ' + nota.contenido;
+                ul.appendChild(li);
+            });
+        }
+
+        async function agregarNota() {
+            const titulo = document.getElementById('titulo').value;
+            const contenido = document.getElementById('contenido').value;
+
+            await fetch('http://127.0.0.1:5000/notas', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ titulo, contenido })
+            });
+
+            cargarNotas();
+        }
+
+        cargarNotas();
+    </script>
+</body>
+</html>
