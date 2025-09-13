@@ -1,44 +1,90 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Mi Jardín Digital</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portafolio personal</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <h1>Mi Jardín Digital</h1>
 
-    <input id="titulo" placeholder="Título">
-    <textarea id="contenido" placeholder="Contenido"></textarea>
-    <button onclick="agregarNota()">Agregar Nota</button>
+    <nav id="navbar" class="nav">
+        <ul class="nav-list">
+          <li>
+            <a href="#welcome-section">Acerca</a>
+          </li>
+          <li>
+            <a href="#projects">Trabajo</a>
+          </li>
+          <li>
+            <a href="#contact">Contacto</a>
+          </li>
+        </ul>
+      </nav>
 
-    <ul id="notas"></ul>
+      <section id="welcome-section" class="welcome-section">
+        <h1>Hola, soy José</h1>
+        <p>Futuro desarrollador web</p>
+      </section>
 
-    <script>
-        async function cargarNotas() {
-            const res = await fetch('http://127.0.0.1:5000/notas');
-            const notas = await res.json();
-            const ul = document.getElementById('notas');
-            ul.innerHTML = '';
-            notas.forEach(nota => {
-                const li = document.createElement('li');
-                li.textContent = nota.titulo + ': ' + nota.contenido;
-                ul.appendChild(li);
-            });
-        }
+      <section id="projects" class="projects-section">
+        <h2 class="projects-section-header">Estos son algunos de mis trabajos</h2>
+      
+        <div class="projects-grid">
 
-        async function agregarNota() {
-            const titulo = document.getElementById('titulo').value;
-            const contenido = document.getElementById('contenido').value;
+          <a href="https://www.freecodecamp.org/espanol/learn/2022/responsive-web-design/build-a-survey-form-project/build-a-survey-form" class="project-link">
+            <img
+              class="project-encuesta"
+              src="images/Encuesta.jpg"
+              alt="Encuesta hecha solo con HTML y CSS"
+            />
+            <p class="project-tile">Página de encuesta con HTML y CSS</p>
+          </a>
+      
+          <a href="https://www.freecodecamp.org/learn/2022/responsive-web-design/build-a-tribute-page-project/build-a-tribute-page" class="project-link">
+            <img
+              class="project-homenaje"
+              src="images/Página de homenaje.jpg"
+              alt="Una página de tributo y homenaje"
+            />
+            <p class="project-tile">Página de tributo y homenaje</p>
+          </a>
 
-            await fetch('http://127.0.0.1:5000/notas', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ titulo, contenido })
-            });
+          <a href="https://www.freecodecamp.org/learn/2022/responsive-web-design/build-a-technical-documentation-page-project/build-a-technical-documentation-page" class="project-link">
+            <img
+              class="project-document"
+              src="images\página de dcumentación técnica.jpg"
+              alt="Una página de documentación técnica sobre ajedrez"
+            />
+            <p class="project-tile">Página de documentación técnica</p>
+          </a>
 
-            cargarNotas();
-        }
+          <a href="https://www.freecodecamp.org/learn/2022/responsive-web-design/build-a-product-landing-page-project/build-a-product-landing-page" class="project-link">
+            <img
+              class="project-landing"
+              src="images\landing page.jpg"
+              alt="landing page"
+            />
+            <p class="project-tile">Landing page</p>
+          </a>
 
-        cargarNotas();
-    </script>
-</body>
+        </div>
+      </section>
+
+          <section id="contact" class="contact-section">
+            <div class="contact-section-header">
+              <h2>¡Trabajemos juntos!</h2>
+              <p>¿Cuándo nos tomamos un café?</p>
+            </div>
+            <div class="contact-links">
+          <a
+            id="profile-link"
+            href="https://github.com/RoyRose06"
+            target="_blank"
+            class="btn contact-details"
+            ><i class="fab fa-github"></i> GitHub</a
+          >
+            </div>
+          </section>
+  </body>
 </html>

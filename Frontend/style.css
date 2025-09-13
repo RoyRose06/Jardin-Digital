@@ -1,0 +1,158 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family:Georgia, 'Times New Roman', Times, serif;
+}
+
+#navbar {
+    display: flex;
+    justify-content: flex-end;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    color: white;
+    background: gray;
+    box-shadow: 0 2px 0 rgba(0, 0, 0, 0.4);
+    z-index: 10;
+}
+
+#navbar a {
+    color: white; /* Cambia 'white' al color que desees */
+    text-decoration: none; /* Elimina el subrayado predeterminado */
+}
+
+#navbar a:hover {
+    color: lightgray; /* Cambia el color al pasar el mouse, si deseas */
+}
+
+.nav-list {
+    display: flex;
+    margin-right: 2rem;
+}
+
+ul {
+    list-style: none;
+}
+
+li {
+    display: list-item;
+    text-align: left;
+    unicode-bidi: isolate;
+    padding: 30px 10px;
+}
+
+#welcome-section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100vh;
+    color: white;
+    background-color: gray;
+    background-image: linear-gradient(180deg, #3a3d40 0%, #181719 100%);
+}
+
+#welcome-section h1 {
+    padding: 10px;
+}
+
+.projects-section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 115vh;
+    background: #1e1e1e; /* Fondo oscuro para diferenciar la sección */
+    color: white; /* Color del texto */
+    gap: 1rem; /* Espacio uniforme entre elementos */
+}
+
+.projects-section-header {
+    font-size: 35px;
+    font-family: 'Times New Roman', Times, serif;
+    margin: 20 auto 50px; /* Centra el título y da un espacio debajo */
+    color: white;
+}
+
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* 2 columnas */
+    grid-gap: 0.5rem; /* Espaciado entre los cuadros */
+    justify-items: center; /* Centra los elementos en la cuadrícula */
+    width: 100%;
+    max-width: 800px; /* Ancho máximo para mantener proporción */
+    margin: 0 auto; /* Centrar la cuadrícula */
+    flex-shrink: 0; /* Evita que la cuadrícula intente encogerse */
+}
+
+.project-link {
+    background: #c2c2c2; /* Fondo blanco para destacar el contenido */
+    border-radius: 8px; /* Bordes redondeados */
+    overflow: hidden;
+    text-decoration: none; /* Sin subrayado en los enlaces */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra sutil */
+    color: #1e1e1e; /* Color del texto */
+    width: 100%; /* Ancho del cuadro */
+    max-width: 400px; /* Tamaño máximo de cada cuadro */
+    text-align: center;
+}
+
+.project-encuesta, .project-homenaje, .project-document, .project-landing {
+    width: 100%;
+    height: 200px; /* Ajusta la altura de las imágenes */
+    object-fit: cover; /* Mantiene las proporciones */
+}
+
+.project-tile{
+    padding: 1rem;
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+.contact-section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100vh;
+}
+
+@media (max-width: 1200px) {
+    .projects-grid {
+        grid-template-columns: repeat(2, 1fr); /* 2 columnas */
+        grid-gap: 1rem; /* Más espacio para pantallas medianas */
+    }
+}
+
+@media (max-width: 768px) {
+    .projects-grid {
+        grid-template-columns: repeat(1, 1fr); /* 1 columna */
+        grid-gap: 1rem; /* Espaciado uniforme */
+    }
+}
+
+@media (max-width: 480px) {
+    .projects-section {
+        height: auto; /* Permite que la altura sea dinámica */
+        
+    }
+
+    .projects-grid {
+        grid-template-columns: 1fr; /* Una sola columna */
+        grid-gap: 1rem; /* Espaciado entre elementos */
+    }
+
+    .project-link {
+        width: 100%; /* Ancho adaptado al viewport */
+    }
+    .projects-section-header {
+    font-size: 23px;
+    padding: 10px;
+    }
+}
+
+
